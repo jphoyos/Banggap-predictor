@@ -4,4 +4,9 @@ Phyton code associated with the methods developed in "A machine learning approac
 
 Author: Juan P. Hoyos, e-mail: jhoyossanchez@gmail.com
 
-Experiments: run 
+## Requirements
+
+Before running the program, make sure you have all dependencies installed. You can do this by running the following command:
+
+```bash
+pip install -r requirements.txt
