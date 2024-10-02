@@ -143,7 +143,7 @@ class BandGapEstimator:
     def update_table(self):
         """Actualiza la tabla con los resultados de las predicciones."""
         self.table.delete(*self.table.get_children())
-        self.table["columns"] = ["ID", "Tauc ", "Bandgap Estimated"]
+        self.table["columns"] = ["ID", "Spectra ", "Bandgap Estimated"]
 
         for col in self.table["columns"]:
             self.table.heading(col, text=col)
@@ -171,11 +171,11 @@ class BandGapEstimator:
         bandgap_estimate = self.results.loc[index, 'Bandgap Estimated']
 
         fig, ax = plt.subplots(figsize=(6, 4))
-        ax.plot(self.eV, x, label="Curva Tauc")
+        ax.plot(self.eV, x, label="Spectra")
         ax.axvline(x=bandgap_estimate, color='r', linestyle='--', label=f"Bandgap Estimated: {bandgap_estimate:.2f} eV")
         ax.set_xlabel("Photon energy, hv (eV)")
         ax.set_ylabel("(F(R_∞)*hv)^(1/γ)")
-        ax.set_title(f"Tauc curve- ID {index + 1}")
+        ax.set_title(f"Spectra curve- ID {index + 1}")
         ax.legend()
 
         canvas = FigureCanvasTkAgg(fig, master=self.plot_frame)
